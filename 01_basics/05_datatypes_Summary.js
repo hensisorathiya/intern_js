@@ -39,3 +39,7 @@ console.log(type)
 // null=>object
 // undefined=>error
 //symbol=>symbol
+
+
+//stack memory(primitive) =call by value
+// ,heap memory (non-primitive) = call by reference 
