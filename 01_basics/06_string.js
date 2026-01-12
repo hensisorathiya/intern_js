@@ -19,4 +19,4 @@ console.log(s1.trim()) ;
 
 const s2="https:/hnesi.com/hoitesh"
 console.log(s2.replace('hnesi','hensi'))
-console.
+console.log(s2)
