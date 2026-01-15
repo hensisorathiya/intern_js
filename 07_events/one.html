@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html event</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <ul id="images">
+        <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/35209410/pexels-photo-35209410.jpeg"></li>
+        <li><img width="200px" id="river" src="https://images.pexels.com/photos/35655771/pexels-photo-35655771.jpeg"></li>
+        <li><img width="200px" id="japan" src="https://images.pexels.com/photos/34170269/pexels-photo-34170269.jpeg"></li>
+        <li><a href="https://www.google.com" id="google">Google</a></li>
+    
+</body>
+<script>
+    //method-1
+    // onclick in element
+
+    // document.getElementById('photoshop').onclick=function(){
+    //     alert("clicked")
+    // }//method-2
+
+    // document.getElementById('photoshop').addEventListener('click',function(){
+    //     alert("photoshop clicked")
+    // })//method-3
+
+    // capturing
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log("click inside the ul")
+    },true)
+    
+    // bubbling
+    document.getElementById('photoshop').addEventListener('click',function(e){
+        console.log("click photoshop")
+        // e.stopPropagation();//event buble hoke upar k element pe nhi jayenga
+    },false)
+
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();
+        console.log("google clicked");
+    })
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.parentNode);
+        if(e.target.tagName==='IMG'){
+        let removeIt=e.target.parentNode;
+        removeIt.remove();        }
+        
+    })
+    //type,timestamp,defaultPrevented
+    //target,toElement,srcElement,currentTarget
+    //clientX,clientY,screenX,screenY
+    //altkey,ctrlkey,shiftkey,keycode
+</script>
+</html>
